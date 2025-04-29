@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Smart Content Generator ✨</h1>
+  
+    <div class="form-group">
+      <label>Content Type:</label>
+      <select [(ngModel)]="contentType">
+        <option value="">Select Type</option>
+        <option>Blog Post</option>
+        <option>Social Media Post</option>
+        <option>Product Description</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label>Tone:</label>
+      <select [(ngModel)]="tone">
+        <option value="">Select Tone</option>
+        <option>Professional</option>
+        <option>Casual</option>
+        <option>Funny</option>
+        <option>Excited</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label>Keywords (optional):</label>
+      <input type="text" [(ngModel)]="keywords" placeholder="e.g. travel, adventure">
+    </div>
+  
+    <button (click)="generateContent()" [disabled]="loading">
+      {{ loading ? 'Generating...' : 'Generate Content' }}
+    </button>
+  
+    <div class="output" *ngIf="generatedContent">
+      <h2>Generated Content:</h2>
+      <textarea readonly rows="10">{{ generatedContent }}</textarea>
+      <button (click)="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+  </div>
+  
