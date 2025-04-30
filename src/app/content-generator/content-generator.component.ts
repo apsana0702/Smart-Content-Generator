@@ -16,6 +16,7 @@ export class ContentGeneratorComponent {
   keywords: string = '';
   generatedContent: string = '';
   loading: boolean = false;
+  isDarkMode = false;
 
   constructor(private aiService: AIService) {}
 
@@ -38,6 +39,15 @@ export class ContentGeneratorComponent {
       this.loading = false;
     });
   }
+
+toggleTheme() {
+  this.isDarkMode = !this.isDarkMode;
+  if (this.isDarkMode) {
+    document.body.classList.add('dark-theme');
+  } else {
+    document.body.classList.remove('dark-theme');
+  }
+}
 
   copyToClipboard() {
     navigator.clipboard.writeText(this.generatedContent);
