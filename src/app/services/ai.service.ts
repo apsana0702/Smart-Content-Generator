@@ -5,7 +5,7 @@ import axios from 'axios'
   providedIn: 'root'
 })
 export class AIService {
-  private apiKey = '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';
+  private apiKey = 'give the key';
   private apiUrl = 'https://openrouter.ai/api/v1/chat/completions';
   constructor() { }
   async getGeneratedContent(prompt: string): Promise<string> {
